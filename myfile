@@ -1,0 +1,10 @@
+import numpy
+import cv2
+
+
+
+img_g = cv2.imread("jupyter/shades-of-grey.png",0)
+resized_image = cv2.resize(img_g,(15,15))
+cv2.imshow("shades-of-grey.png", resized_image)
+print(resized_image)
+cv2.waitKey(0)
