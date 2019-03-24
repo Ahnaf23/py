@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+from scipy.ndimage import label
+
+img = cv2.imread('jupyter/shades-of-grey.png', cv2.IMREAD_GRAYSCALE)
+
+pixels = np.zeros(256, dtype='int')
+
+for pixel in range(256):
+    print(pixel)
+    img_copy = np.copy(img)
+
+    img_copy[img_copy==pixel] = 1
+    img_copy[img_copy!=1] = 0
+
+    labels, num = label(img_copy, structure=None)
+    pixels[pixel] = num
+
+print(pixels)
